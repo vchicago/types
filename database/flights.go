@@ -6,6 +6,7 @@ type Flights struct {
 	ID          int       `json:"id" gorm:"primaryKey"`
 	Callsign    string    `json:"callsign" gorm:"index;type:varchar(10)"`
 	CID         int       `json:"cid" gorm:"index"`
+	Name        string    `json:"name" gorm:"type:varchar(191)"`
 	Facility    string    `json:"facility" gorm:"type:varchar(4)"`
 	Latitude    float32   `json:"latitude" gorm:"type:float(10,8)"`
 	Longitude   float32   `json:"longitude" gorm:"type:float(11,8)"`
