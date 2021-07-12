@@ -21,7 +21,7 @@ package database
 import "time"
 
 type User struct {
-	CID               uint      `json:"cid" gorm:"primaryKey"`
+	CID               uint      `json:"cid" gorm:"index;type:int(11);column:cid"`
 	FirstName         string    `json:"firstname" gorm:"type:varchar(128)"`
 	LastName          string    `json:"lastname" gorm:"type:varchar(128)"`
 	Email             string    `json:"-" gorm:"type:varchar(128);index"`
