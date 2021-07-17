@@ -29,6 +29,7 @@ type User struct {
 	OperatingInitials string    `json:"operatingInitials" gorm:"type:char(2);index"`
 	RatingID          int       `json:"-"`
 	Rating            Rating    `json:"rating"`
+	Roles             []*Role   `json:"roles" gorm:"many2many:user_roles"`
 	Status            string    `json:"status" gorm:"type:enum('none', 'active', 'inactive', 'leave')"`
 	UpdateId          string    `json:"updateId" gorm:"type:varchar(21)"`
 	CreatedAt         time.Time `json:"created_at"`
