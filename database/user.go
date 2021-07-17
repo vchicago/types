@@ -30,6 +30,7 @@ type User struct {
 	RatingID          int       `json:"-"`
 	Rating            Rating    `json:"rating"`
 	Status            string    `json:"status" gorm:"type:enum('none', 'active', 'inactive', 'leave')"`
+	UpdateId          time.Time `json:"updateId"`
 	CreatedAt         time.Time `json:"created_at"`
 	UpdatedAt         time.Time `json:"updated_at"`
 }
