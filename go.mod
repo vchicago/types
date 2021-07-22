@@ -1,3 +1,3 @@
-module github.com/vchicago/types
+module github.com/vzau/types
 
 go 1.16
