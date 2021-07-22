@@ -31,6 +31,11 @@ type User struct {
 	Rating            Rating    `json:"rating"`
 	Roles             []*Role   `json:"roles" gorm:"many2many:user_roles"`
 	Status            string    `json:"status" gorm:"type:enum('none', 'active', 'inactive', 'leave')"`
+	Delivery          string    `json:"delivery" gorm:"type:enum('none','minor','major-solo','certified')"`
+	Ground            string    `json:"ground" gorm:"type:enum('none','minor','major-solo','certified')"`
+	Local             string    `json:"local" gorm:"type:enum('none','minor','major-solo','certified')"`
+	Approach          string    `json:"approach" gorm:"type:enum('none','minor','major-solo','certified')"`
+	Enroute           string    `json:"enroute" gorm:"type:enum('none','major-solo','certified')"`
 	UpdateId          string    `json:"updateId" gorm:"type:varchar(21)"`
 	CreatedAt         time.Time `json:"created_at"`
 	UpdatedAt         time.Time `json:"updated_at"`
