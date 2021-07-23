@@ -25,17 +25,17 @@ type User struct {
 	FirstName         string    `json:"firstname" gorm:"type:varchar(128)"`
 	LastName          string    `json:"lastname" gorm:"type:varchar(128)"`
 	Email             string    `json:"-" gorm:"type:varchar(128);index"`
-	ControllerType    string    `json:"controllerType" gorm:"type:enum('none', 'visitor', 'home')"`
+	ControllerType    string    `json:"controllerType" gorm:"type:enum('none', 'visitor', 'home');not null;default:'none'"`
 	OperatingInitials string    `json:"operatingInitials" gorm:"type:char(2);index"`
 	RatingID          int       `json:"-"`
 	Rating            Rating    `json:"rating"`
 	Roles             []*Role   `json:"roles" gorm:"many2many:user_roles"`
-	Status            string    `json:"status" gorm:"type:enum('none', 'active', 'inactive', 'leave')"`
-	Delivery          string    `json:"delivery" gorm:"type:enum('none','minor','major-solo','certified')"`
-	Ground            string    `json:"ground" gorm:"type:enum('none','minor','major-solo','certified')"`
-	Local             string    `json:"local" gorm:"type:enum('none','minor','major-solo','certified')"`
-	Approach          string    `json:"approach" gorm:"type:enum('none','minor','major-solo','certified')"`
-	Enroute           string    `json:"enroute" gorm:"type:enum('none','major-solo','certified')"`
+	Status            string    `json:"status" gorm:"type:enum('none', 'active', 'inactive', 'leave');not null;default:'none'"`
+	Delivery          string    `json:"delivery" gorm:"type:enum('none','minor','major-solo','certified');not null;default:'none'"`
+	Ground            string    `json:"ground" gorm:"type:enum('none','minor','major-solo','certified');not null;default:'none'"`
+	Local             string    `json:"local" gorm:"type:enum('none','minor','major-solo','certified');not null;default:'none'"`
+	Approach          string    `json:"approach" gorm:"type:enum('none','minor','major-solo','certified');not null;default:'none'"`
+	Enroute           string    `json:"enroute" gorm:"type:enum('none','major-solo','certified');not null;default:'none'"`
 	UpdateId          string    `json:"updateId" gorm:"type:varchar(21)"`
 	CreatedAt         time.Time `json:"created_at"`
 	UpdatedAt         time.Time `json:"updated_at"`
