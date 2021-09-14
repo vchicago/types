@@ -21,7 +21,7 @@ package database
 import "time"
 
 type Role struct {
-	ID        int       `json:"id" gorm:"primaryKey;type:int(6)"`
+	ID        int       `json:"id" gorm:"primaryKey"`
 	Name      string    `json:"name" gorm:"type:varchar(64);index"`
 	Users     []*User   `json:"users" gorm:"many2many:user_roles"`
 	CreatedAt time.Time `json:"created_at"`
