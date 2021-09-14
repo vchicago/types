@@ -24,10 +24,10 @@ type User struct {
 	CID               uint      `json:"cid" gorm:"primaryKey;type:int(11);column:cid"`
 	FirstName         string    `json:"firstname" gorm:"type:varchar(128)"`
 	LastName          string    `json:"lastname" gorm:"type:varchar(128)"`
-	Email             string    `json:"-" gorm:"type:varchar(128);index"`
+	Email             string    `json:"-" yaml:"-" xml:"-" gorm:"type:varchar(128);index"`
 	ControllerType    string    `json:"controllerType" gorm:"type:enum('none', 'visitor', 'home');not null;default:'none'"`
 	OperatingInitials string    `json:"operatingInitials" gorm:"type:char(2);index"`
-	RatingID          int       `json:"-"`
+	RatingID          int       `json:"-" yaml:"-" xml:"-"`
 	Rating            Rating    `json:"rating"`
 	Roles             []*Role   `json:"roles" gorm:"many2many:user_roles"`
 	Status            string    `json:"status" gorm:"type:enum('none', 'active', 'inactive', 'leave');not null;default:'none'"`
