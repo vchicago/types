@@ -30,7 +30,7 @@ type User struct {
 	RatingID          int       `json:"-" yaml:"-" xml:"-"`
 	Rating            Rating    `json:"rating"`
 	Roles             []*Role   `json:"roles" gorm:"many2many:user_roles"`
-	Status            string    `json:"status" gorm:"type:enum('none', 'active', 'inactive', 'leave');not null;default:'none'"`
+	Status            string    `json:"status" gorm:"type:enum('none', 'active', 'inactive', 'leave', 'removed');not null;default:'none'"`
 	Delivery          string    `json:"delivery" gorm:"type:enum('none','minor','major-solo','certified');not null;default:'none'"`
 	Ground            string    `json:"ground" gorm:"type:enum('none','minor','major-solo','certified');not null;default:'none'"`
 	Local             string    `json:"local" gorm:"type:enum('none','minor','major-solo','certified');not null;default:'none'"`
