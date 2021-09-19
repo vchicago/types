@@ -26,7 +26,7 @@ type Event struct {
 	Description string          `json:"description" gorm:"type:text"`
 	Start       time.Time       `json:"start"`
 	End         time.Time       `json:"end"`
-	Banner      File            `json:"banner"`
+	Banner      File            `json:"banner" gorm:"foreignKey:id"`
 	Positions   []EventPosition `json:"positions"`
 	SignUps     []EventSignUp   `json:"signups"`
 	CreatedAt   time.Time       `json:"created_at"`
