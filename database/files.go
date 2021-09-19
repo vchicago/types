@@ -23,7 +23,11 @@ import "time"
 type File struct {
 	ID          uint      `json:"id" gorm:"primaryKey"`
 	Name        string    `json:"name" gorm:"type:varchar(191)"`
-	Filename    string    `json:"filename" gorm:"type:varchar(191)"`
+	Filename    string    `json:"-" gorm:"type:varchar(191)"`
+	Bucket      string    `json:"-" gorm:"type:varchar(191)"`
+	Key         string    `json:"-" gorm:"type:varchar(191)"`
+	ContentType string    `json:"contentType" gorm:"type:varchar(191)"`
+	Size        int64     `json:"size" gorm:"type:bigint"`
 	Description string    `json:"description" gorm:"type:text"`
 	CategoryID  int       `json:"-"`
 	Category    Category  `json:"category"`
