@@ -18,7 +18,9 @@
 
 package database
 
-import "time"
+import (
+	"time"
+)
 
 type Event struct {
 	ID          int64           `json:"id"`
@@ -35,8 +37,9 @@ type Event struct {
 
 type EventPosition struct {
 	ID        int64     `json:"id"`
-	Event     Event     `json:"event"`
+	EventID   int64     `json:"event"`
 	Position  int64     `json:"position"`
+	TakenByID uint      `json:"-"`
 	TakenBy   User      `json:"taken_by"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
@@ -44,7 +47,8 @@ type EventPosition struct {
 
 type EventSignUp struct {
 	ID        int64     `json:"id"`
-	Event     Event     `json:"event"`
+	EventID   int64     `json:"event"`
+	UserID    uint      `json:"-"`
 	User      User      `json:"user"`
 	First     string    `json:"first"`
 	Second    string    `json:"second"`
