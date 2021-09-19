@@ -29,7 +29,7 @@ type Event struct {
 	Start       time.Time       `json:"start"`
 	End         time.Time       `json:"end"`
 	BannerID    uint            `json:"-"`
-	Banner      File            `json:"banner" gorm:"foreignKey:id"`
+	Banner      File            `json:"banner" gorm:"foreignKey:BannerID"`
 	Positions   []EventPosition `json:"positions"`
 	SignUps     []EventSignUp   `json:"signups"`
 	CreatedAt   time.Time       `json:"created_at"`
