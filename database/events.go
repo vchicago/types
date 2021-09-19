@@ -23,11 +23,12 @@ import (
 )
 
 type Event struct {
-	ID          int64           `json:"id"`
-	Title       string          `json:"title"`
+	ID          uint            `json:"id"`
+	Title       string          `json:"title" gorm:"type:varchar(191)"`
 	Description string          `json:"description" gorm:"type:text"`
 	Start       time.Time       `json:"start"`
 	End         time.Time       `json:"end"`
+	BannerID    uint            `json:"-"`
 	Banner      File            `json:"banner" gorm:"foreignKey:id"`
 	Positions   []EventPosition `json:"positions"`
 	SignUps     []EventSignUp   `json:"signups"`
@@ -38,7 +39,7 @@ type Event struct {
 type EventPosition struct {
 	ID        int64     `json:"id"`
 	EventID   int64     `json:"event"`
-	Position  int64     `json:"position"`
+	Position  int64     `json:"position" gorm:"type:varchar(15)"`
 	TakenByID uint      `json:"-"`
 	TakenBy   User      `json:"taken_by"`
 	CreatedAt time.Time `json:"created_at"`
@@ -50,10 +51,10 @@ type EventSignUp struct {
 	EventID   int64     `json:"event"`
 	UserID    uint      `json:"-"`
 	User      User      `json:"user"`
-	First     string    `json:"first"`
-	Second    string    `json:"second"`
-	Third     string    `json:"third"`
-	Notes     string    `json:"notes"`
+	First     string    `json:"first" gorm:"type:varchar(15)"`
+	Second    string    `json:"second" gorm:"type:varchar(15)"`
+	Third     string    `json:"third" gorm:"type:varchar(15)"`
+	Notes     string    `json:"notes" gorm:"type:text"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 }
