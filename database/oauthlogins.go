@@ -33,6 +33,8 @@ type OAuthLogin struct {
 	CodeChallengeMethod string      `json:"-"`
 	Scope               string      `json:"-"`
 	CID                 uint        `json:"cid"`
+	Name                string      `json:"name"`
+	Roles               string      `json:"roles"`
 	CreatedAt           time.Time
 	UpdatedAt           time.Time
 }
